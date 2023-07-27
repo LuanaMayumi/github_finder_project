@@ -7,15 +7,16 @@ import styles from './Search.module.css'
 export default function Search({loadUser}: SearchProps) {
   const [userName, setUserName] = useState("")
 
-  const handleKeyDown = (event: KeyboardEvent) => {
-    if(event.key == "Enter") {
-      loadUser(userName)
-    }
-  }
 
   const handleChange = () => {
     loadUser(userName)
     setUserName("")
+  }
+
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if(event.key == "Enter") {
+      handleChange()
+    }
   }
 
   return (
